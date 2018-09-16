@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')mu^1ba3$pl42+k49u7md8971b5)!z!4oy(=a^ohrq_zu!!acb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = Flase
 
 ALLOWED_HOSTS = []
 
@@ -138,7 +138,7 @@ if os.getcwd() == '/app':
 
 	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
-	ALLOWED_HOSTS = ['*']
+	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 	STATIC_ROOT = 'staticfiles'
