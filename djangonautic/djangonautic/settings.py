@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'djangonautic.urls'
@@ -141,8 +142,9 @@ if os.getcwd() == '/app':
 	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-	STATIC_ROOT = 'staticfiles'
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 	STATIC_URL = '/static/'
 	STATICFILES_DIRS = (
 		os.path.join(BASE_DIR,'static'),
 	)
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
