@@ -49,7 +49,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'djangonautic.urls'
@@ -136,18 +135,14 @@ if os.getcwd() == '/app':
 		'default': dj_database_url.config(default='postgres://localhost')
          }
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
-ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
+	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR,'static'),
+	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
+
+	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+	STATIC_ROOT = 'staticfiles'
+	STATIC_URL = '/static/'
+	STATICFILES_DIRS = (
+		os.path.join(BASE_DIR,'assets'),
 	)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
