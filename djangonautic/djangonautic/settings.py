@@ -25,7 +25,7 @@ SECRET_KEY = ')mu^1ba3$pl42+k49u7md8971b5)!z!4oy(=a^ohrq_zu!!acb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
 
 # Application definition
@@ -129,20 +129,19 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 #heroku settings
-if os.getcwd() == '/app':
-	import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
-	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
-	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
+ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
-	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = [
-                os.path.join(BASE_DIR, "static"),
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
             ]
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
