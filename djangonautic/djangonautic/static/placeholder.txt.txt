@@ -1,0 +1,2 @@
+this file ensures that djangonautic/static/ will be addded to the project
+django will collect static files and place the, in djangonautic/static/
