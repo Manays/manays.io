@@ -131,9 +131,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 #heroku settings
 if os.getcwd() == '/app':
 	import dj_database_url
-	DATABASES = {
-		'default': dj_database_url.config(default='postgres://localhost')
-         }
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 
 	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
@@ -141,8 +140,9 @@ if os.getcwd() == '/app':
 	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-	STATIC_ROOT = 'staticfiles'
-	STATIC_URL = '/static/'
-	STATICFILES_DIRS = (
-		os.path.join(BASE_DIR,'assets'),
-	)
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+                os.path.join(BASE_DIR, "static"),
+            ]
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
