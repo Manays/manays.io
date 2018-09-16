@@ -136,19 +136,18 @@ if os.getcwd() == '/app':
 		'default': dj_database_url.config(default='postgres://localhost')
          }
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
-	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
+ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
-	ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
-
-	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-	STATIC_URL = '/static/'
-	STATICFILES_DIRS = (
-		os.path.join(BASE_DIR,'static'),
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+	os.path.join(BASE_DIR,'static'),
 	)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
