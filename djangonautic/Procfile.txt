@@ -1,1 +1,1 @@
-web: gunicorn djangonautic.wsgi --log-file -
+web: gunicorn djangonautic.wsgi
