@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,7 +144,7 @@ STATICFILES_DIRS = (
 	os.path.join(BASE_DIR,'static'),
 	)
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 TEMPLATE_DIRS= (
     os.path.join(BASE_DIR,'templates'),
