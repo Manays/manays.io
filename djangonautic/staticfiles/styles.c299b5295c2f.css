@@ -3,7 +3,7 @@ body, html {
 }
 
 body{
-    background-image:url(/static/j.jpg);
+    background-image:url("/static/j.e01a8533b625.jpg");
     height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
