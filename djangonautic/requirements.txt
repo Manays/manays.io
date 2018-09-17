@@ -12,4 +12,4 @@ smmap2==2.0.4
 static3==0.7.0
 virtualenv==16.0.0
 virtualenvwrapper-win==1.2.5
-whitenoise==2.0.6
+whitenoise==4.0.0
