@@ -3,7 +3,7 @@
 body{
     background-image:url(/static/k.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     color: #fff;
 }
 
