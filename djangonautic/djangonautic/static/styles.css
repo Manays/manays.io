@@ -1,7 +1,7 @@
 body{
-    background: grey;
     background-image:url(/static/j.jpg);
-    background-repeat-y:no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #fff;
 }
 
