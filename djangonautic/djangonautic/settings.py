@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,7 +130,6 @@ DATABASES = {
          }
 
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','http')
 
 ALLOWED_HOSTS = ['write-blogs.herokuapp.com']
 
@@ -151,4 +149,5 @@ TEMPLATE_DIRS= (
 )
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
